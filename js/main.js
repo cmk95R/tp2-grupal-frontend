@@ -44,6 +44,23 @@
     Deben tener como claves: id, nombre, precio y la ruta de la imagen
 */
 
+let productosFruteria = [
+    {id:1, nombre: "anana", precio: 35000 , img:"img/anana.jpg"},
+    {id:2, nombre: "arandano", precio: 35000 , img:"img/arandano.jpg"},
+    {id:3, nombre: "banana", precio: 35000 , img:"img/banana.jpg"},
+    {id:4, nombre: "frambuesa", precio: 35000 , img:"img/frambuesa.jpg"},
+    {id:5, nombre: "frutilla", precio: 35000 , img:"img/frutilla.jpg"},
+    {id:6, nombre: "kiwi", precio: 35000 , img:"img/kiwi.jpg"},
+    {id:7, nombre: "mandarina", precio: 35000 , img:"img/mandarina.jpg"},
+    {id:8, nombre: "manzana", precio: 35000 , img:"img/manzana.jpg"},
+    {id:9, nombre: "naranja", precio: 35000 , img:"img/naranja.jpg"},
+    {id:10, nombre: "pera", precio: 35000 , img:"img/pera.jpg"},
+    {id:11, nombre: "pomelo amarillo", precio: 35000 , img:"img/pomelo-amarillo.jpg"},
+    {id:12, nombre: "pomelo rojo", precio: 35000 , img:"img/pomelo-rojo.jpg"},
+    {id:13, nombre: "sandia", precio: 35000 , img:"img/sandia.jpg"},
+   
+
+];
 
 
 

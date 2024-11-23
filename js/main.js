@@ -84,6 +84,18 @@ let productosFruteria = [
         </div>
 */
 
+function mostrarProductos(array) {
+    const cartaProducto = array.map(producto => `
+        <div class="product-card">
+            <img src="${producto.img}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>$${producto.precio}</p>
+            <button class="add-to-cart" onclick="agregarCarrito(${producto.id})">Agregar al carrito</button>
+        </div>
+    `).join(""); 
+    
+    cuadriculaProductos.innerHTML = cartaProducto;
+}
 
 
 
@@ -113,6 +125,6 @@ let productosFruteria = [
 
 // Funcion inicializadora
 
-function init() {
+//function init() {
     // Acá irían las funciones de arranque de la aplicación. No se olviden de invocar esta app    
-}
+//}

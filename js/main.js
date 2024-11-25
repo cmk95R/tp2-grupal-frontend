@@ -58,7 +58,6 @@ let productosFruteria = [
     {id:11, nombre: "pomelo amarillo", precio: 35000 , img:"img/pomelo-amarillo.jpg"},
     {id:12, nombre: "pomelo rojo", precio: 35000 , img:"img/pomelo-rojo.jpg"},
     {id:13, nombre: "sandia", precio: 35000 , img:"img/sandia.jpg"},
-   
 
 ];
 
@@ -68,8 +67,17 @@ let productosFruteria = [
 /*  PREGUNTA 3_____________
     Agreguen a la funcion inicializadora init() una función para imprimir nombre del grupo en el nav y en la consola.
 */
+// 1: Almacenar muestros nombres
+const grupo = {
+    nombre: "Grupo 2",
+    integrantes: ["Jean Pierre Michel Kong", "Cristian Velazquez", "Roberto Barragan", "William Romero"]
+};
 
+// Mostrar el nombre del grupo en el nav
+document.querySelector('.nombreGrupo').textContent = grupo.nombre;
 
+// Mostrar el nombre del grupo en la consola
+console.log(grupo.nombre);
 
 
 /*  PREGUNTA 4_____________
@@ -116,6 +124,13 @@ function mostrarProductos(array) {
     Escriban una función filtro, por ejemplo, asociada a un evento keyup, que recoja los valores del campo input y ejecute con cada evento un filtro que actualice los productos
 */
 
+function filtroProductos() {
+    const keywords = barraBusqueda.value.toLowerCase();
+    const productosFiltrados = productosFruteria.filter(producto =>
+        producto.nombre.toLowerCase().includes(keywords)
+    );
+    mostrarProductos(productosFiltrados);
+}
 
 
 
@@ -143,3 +158,5 @@ function init() {
 }
 
 init();
+barraBusqueda.addEventListener("keyup", filtroProductos);
+

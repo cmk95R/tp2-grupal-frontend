@@ -103,9 +103,9 @@ function mostrarProductos(array) {
             <img src="${array[i].img} " alt="${array[i].nombre}">
             <h3>${array[i].nombre}</h3>
             <p>$${array[i].precio}</p>
-            <button class"add-to-cart">Agregar a carrito</button>
+            <button class="add-to-cart" onclick="agregarCarrito(${array[i].id})">Agregar a carrito</button>
         </div>
-        `
+        `;
     }
     cuadriculaProductos.innerHTML = cartaProducto;
 }
@@ -134,6 +134,32 @@ function mostrarProductos(array) {
     2. Se valorará que se almacenen los productos del carrito en un localStorage
 */
 
+function agregarCarrito (id){
+    console.log(`id del producto: ${id}`);
+
+    let frutaSeleccionada = productosFruteria.find(fruta => fruta.id === id);
+    carrito.push(frutaSeleccionada);
+    console.log(carrito);
+
+    mostrarCarrito();
+}
+
+function mostrarCarrito() {
+    let objetosCarrito = document.querySelector("#cart-items");
+    let carritoCompra = "";
+    let precioTotal = 0;
+
+    carrito.forEach((producto, indice) =>{
+        carritoCompra += `
+        <li class= "item-block">
+            <p class= "item-name"> ${producto.nombre} - $${producto.precio}</p>
+            <button class= "delete-button">Eliminar</button>
+        </li>
+        `;
+    });
+
+    objetosCarrito.innerHTML = carritoCompra;
+}
 
 
 // Funcion inicializadora

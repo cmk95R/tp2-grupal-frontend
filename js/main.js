@@ -48,7 +48,7 @@ let productosFruteria = [
     {id:1, nombre: "anana", precio: 35000 , img:"img/anana.jpg"},
     {id:2, nombre: "arandano", precio: 35000 , img:"img/arandano.jpg"},
     {id:3, nombre: "banana", precio: 35000 , img:"img/banana.jpg"},
-    {id:4, nombre: "frambuesa", precio: 35000 , img:"img/frambuesa.jpg"},
+    {id:4, nombre: "frambuesa", precio: 35000 , img:"img/frambuesa.png"},
     {id:5, nombre: "frutilla", precio: 35000 , img:"img/frutilla.jpg"},
     {id:6, nombre: "kiwi", precio: 35000 , img:"img/kiwi.jpg"},
     {id:7, nombre: "mandarina", precio: 35000 , img:"img/mandarina.jpg"},
@@ -84,16 +84,29 @@ let productosFruteria = [
         </div>
 */
 
+let cuadriculaProductos = document.querySelector(".product-grid");
+let barraBusqueda = document.querySelector(".search-bar");
+let botonesCarrito = document.querySelector(".add-to-cart");
+let objetosCarrito = document.querySelector(".cart-items");
+let precioCarrito = document.querySelector(".total-prize");
+let contadoCarrito = document.querySelector(".cart-count");
+
+let carrito = [];
+
+
 function mostrarProductos(array) {
-    const cartaProducto = array.map(producto => `
-        <div class="product-card">
-            <img src="${producto.img}" alt="${producto.nombre}">
-            <h3>${producto.nombre}</h3>
-            <p>$${producto.precio}</p>
-            <button class="add-to-cart" onclick="agregarCarrito(${producto.id})">Agregar al carrito</button>
+    let cartaProducto = "";
+
+    for (let i = 0; i < array.length; i++){
+        cartaProducto += `
+        <div class ="product-card">
+            <img src="${array[i].img} " alt="${array[i].nombre}">
+            <h3>${array[i].nombre}</h3>
+            <p>$${array[i].precio}</p>
+            <button class"add-to-cart">Agregar a carrito</button>
         </div>
-    `).join(""); 
-    
+        `
+    }
     cuadriculaProductos.innerHTML = cartaProducto;
 }
 
@@ -125,6 +138,8 @@ function mostrarProductos(array) {
 
 // Funcion inicializadora
 
-//function init() {
-    // Acá irían las funciones de arranque de la aplicación. No se olviden de invocar esta app    
-//}
+function init() {
+        mostrarProductos(productosFruteria);
+}
+
+init();
